@@ -1,0 +1,4 @@
+node_modules
+compiled
+results
+.nyc_output
