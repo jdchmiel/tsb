@@ -108,5 +108,18 @@ abba
       assert.deepStrictEqual(actual, expected, 'expecting ' + expected);
       done();
     });
+    it('should return very long string ', (done) => {
+      let longString = ''
+      for ( let i:number = 0; i < 110000; i++) {
+        longString +='x';
+      }
+      let input:string = `1
+${longString}`;
+      let actual:string[] = target.parseInput(input);
+      assert.deepStrictEqual(actual[0].length, 110000, 'length is long');
+      assert.deepStrictEqual(actual[0], longString, 'expecting a long string');
+      done();
+    });
+
   })
 });
