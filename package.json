@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "nyc mocha test/unit/**/*.test.ts",
-    "unit": "nyc mocha test/unit/**/*.test.ts", 
+    "unit": "nyc mocha test/unit/**/*.test.ts",
     "build": "tsc"
   },
   "keywords": [
