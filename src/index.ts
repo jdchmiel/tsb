@@ -1,4 +1,3 @@
-import { worker } from 'cluster';
 import {Palendrome} from './Palendrome';
 
 let testerPal = new Palendrome(),
