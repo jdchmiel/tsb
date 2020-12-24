@@ -59,7 +59,10 @@ export class Palendrome {
                         // second flip requirement found, abort 
                         return -1;
                     }
-                }           
+                } else {
+                    //sequential flips or additions
+                    response = left;
+                }       
             }
             left += 1;
             right -= 1;

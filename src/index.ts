@@ -1,23 +1,26 @@
+import { worker } from 'cluster';
 import {Palendrome} from './Palendrome';
 
-console.log('Begin');
-
 let testerPal = new Palendrome(),
-  sample:string = ``,
-  readline = require('readline'),
-  rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-    terminal: false
+  sample:string = ``;
+
+process.stdin.on('data', function(line:string){
+  //console.log('#:'+line);
+  sample += line;
+});
+process.stdin.on('end', () => {
+  work();
+});
+
+function work() {
+  // console.log(sample);
+  let possiblePalendromes = testerPal.parseInput(sample);
+  // console.log(possiblePalendromes);
+
+  possiblePalendromes.forEach(possiblePal => {
+    console.log(testerPal.testOneOffPalendrome(possiblePal));
   });
-
-rl.on('line', function(line:string){
-    sample += line;
-});
-
-let possiblePalendromes = testerPal.parseInput(sample);
-possiblePalendromes.forEach(possiblePal => {
-  console.log(testerPal.testOneOffPalendrome(possiblePal));
-});
+  // console.log('Done');
+}
 
 

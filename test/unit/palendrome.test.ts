@@ -83,10 +83,15 @@ describe('Palendrome', () => {
       assert.deepStrictEqual(actual, -1, 'expecting -1');
       done();
     });
-
+    it('should return -1 when more than 1 extra char', (done) => {
+      let actual:number = target.testOneOffPalendrome('axxdcba');
+      assert.deepStrictEqual(actual, -1, 'expecting -1');
+      done();
+    });
+    
 
   });
-  describe.only('parseInput', () => {
+  describe('parseInput', () => {
     it('should return  [] when input is empty', (done) => {
       let input:string = '';
       let actual:string[] = target.parseInput(input);
