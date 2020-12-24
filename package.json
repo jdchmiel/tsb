@@ -1,7 +1,7 @@
 {
-  "name": "typescript-backend",
+  "name": "palendrome-tester",
   "version": "1.0.0",
-  "description": "Boilerplate for back end typescript projects",
+  "description": "coding exercise",
   "main": "index.js",
   "scripts": {
     "test": "nyc mocha test/unit/**/*.test.ts",

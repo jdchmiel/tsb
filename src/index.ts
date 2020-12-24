@@ -1,16 +1,23 @@
-'use strict';
+import {Palendrome} from './Palendrome';
 
-export class HelloService {
-    private config : any;
-    private logger : any;
+console.log('Begin');
 
-    constructor(config: any) {
-        this.config = config;
-        this.logger = config.logger || console;
-    }
+let testerPal = new Palendrome(),
+  sample:string = ``,
+  readline = require('readline'),
+  rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+    terminal: false
+  });
 
-    sayHi(name: string):string {
-        this.logger.log('greeting', name);
-        return (this.config.greet || 'hello') + ' ' + name;
-    }
-}
+rl.on('line', function(line:string){
+    sample += line;
+});
+
+let possiblePalendromes = testerPal.parseInput(sample);
+possiblePalendromes.forEach(possiblePal => {
+  console.log(testerPal.testOneOffPalendrome(possiblePal));
+});
+
+
